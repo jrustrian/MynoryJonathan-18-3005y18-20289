@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Mail;
+use Illuminate\Support\Facades\DB;
 
 class ContactUsFormController extends Controller {
 
@@ -38,7 +39,7 @@ class ContactUsFormController extends Controller {
             $message->to('digambersingh126@gmail.com', 'Admin')->subject($request->get('subject'));
         });
 
-        return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
+        return back()->with('success', 'Su Registro Fue Exitoso.');
     }
 
 }
