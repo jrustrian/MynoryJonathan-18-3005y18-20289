@@ -14,8 +14,11 @@ use App\Http\Controllers\ContactUsFormController;
 */
 
 Route::get('/', function () {
-    return view('/contact');
-});
-Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+    return view('welcome');
 
-Route::post('/contactsave', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home/contact', [\App\Http\Controllers\ContactUsFormController::class, 'createForm'])->name('contact');
+
+Route::post('home/contactsave', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
